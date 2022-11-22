@@ -31,11 +31,8 @@ public class Grafo {
                 if (tam > 5)
                     System.out.println("No pueden ser el numero dado");
             }
-
-
         }
-    }
-
+    }//Introducir
     public void Muestra() {
         System.out.println("\nEsta es la matriz de adyacencia");
         for (int i = 1; i <= 5; i++) {
@@ -44,7 +41,7 @@ public class Grafo {
             }
             System.out.print("\n");
         }
-    }
+    }//Muestra
 
     public void Conexo() {
         //El grafo será conexo si existe un camino desde cualquier nodo del grafo hasta cualquier otro.
@@ -65,7 +62,7 @@ public class Grafo {
             System.out.println("\nEl grafo SI es Conexo");
         else
             System.out.println("\nEL grafo NO es Conexo");
-    }
+    }//Conexo
 
     public void Grado() {
         int c[] = new int[6];
@@ -83,7 +80,7 @@ public class Grafo {
         for (int i = 1; i <= 5; i++) {
             System.out.println("grado total del vertice " + i + " es: " + c[i]);
         }
-    }
+    }//Grado
 
     public void Multiplica(int x) {
         int c[][] = new int[6][6];
@@ -106,7 +103,7 @@ public class Grafo {
             }
             this.B = c;
         }
-    }
+    }//Multiplica
 
     public void Camino(int i, int j) {
         boolean ban = false;
@@ -129,6 +126,6 @@ public class Grafo {
         }
         if (ban == false)
             System.out.println("NO existe camino de " + i + " a " + j);
-    }
+    }//Camino
 
 }
