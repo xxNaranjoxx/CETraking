@@ -1,9 +1,21 @@
 import java.util.Scanner;
+
+import GUI.Gui_Grafos;
 import Grafo.Dijkstra2;
 
 public class Main {
 
     public static void main(String[] args) {
+
+        java.awt.EventQueue.invokeLater(new Runnable() {
+
+            @Override
+            public void run() {
+                new Gui_Grafos().setVisible(true);
+            }
+        });
+
+        /***
         int u, z, origen = 0,nodos = 0, caso = 0, existe = 0 ;
         boolean t, w = true, y = true;
         while (w == true){
@@ -113,7 +125,7 @@ public class Main {
             }
 
 
-        }
+        }**/
 
         /**Scanner scan = new Scanner(System.in);
         Grafo G = new Grafo();

@@ -43,6 +43,10 @@ public class Nodo {
         return this.dato;
     }
 
+    /***
+     *
+     * @return
+     */
     public ArrayList<Enlace> getListaNodoAdyacente() {
         ArrayList<Enlace> listAristaAux = null;
         if (!listaNodoAdyacente.isEmpty()) {
