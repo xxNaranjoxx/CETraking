@@ -1,10 +1,3 @@
-/*
- * Autor: Juan Carlos Arcila Diaz
- * Localidad: Chiclayo-Peru
- * Email:carlos_ad_6@hotmail.com
- * Para Comunidad IncanatoHack.com
- */
-
 package Algoritmo;
 
 import java.awt.Color;
@@ -24,7 +17,7 @@ public class Dijsktra {
     public Dijsktra(Grafo grafo) {
         this.grafo = grafo;
         listaNodosAdyacentes = new ListaNodo();
-    }
+    }//constructor
 
     private void llenarConAdyacentes(Nodo nodo) {
         if (nodo != null) {
@@ -44,13 +37,13 @@ public class Dijsktra {
                             aux2.setLongitudCamino(nodo.getLongitudCamino() + enlace.getArista().getPeso());
                             aux2.setNodoAntecesorDisjktra(nodo);
                             listaNodosAdyacentes.add(aux2);
-                        }
+                        }//if-else
 
-                    }
-                }
-            }
-        }
-    }
+                    }//if
+                }//for
+            }//if
+        }//if
+    }//llenarConAdyacentes
 
     public void ejecutar(Nodo nodoInicio) {
         nodoInicio.setLongitudCamino(0);
@@ -62,10 +55,13 @@ public class Dijsktra {
                 menor.setMarca(true);
                 listaNodosAdyacentes.remove(menor);
                 llenarConAdyacentes(menor);
-            }
-        }
-    }
-
+            }//while
+        }//if
+    }//ejecutar
+    /***
+     * Este metodo se encarga de buscar la ruta mas corta
+     * @param nodoFinal recibe esta variable para tomar el ultimo nodo que se seecciono para ver con todas las rutas que hay
+     */
     private void rutaCorta(Nodo nodoFinal) {
         aux.clear();
         Nodo nAux = nodoFinal;
@@ -75,10 +71,12 @@ public class Dijsktra {
             aux.add(grafo.getArista(nAux,
                     nAux.getNodoAntecesorDisjktra()));
             nAux = nAux.getNodoAntecesorDisjktra();
-        }
+        }//while
 
-    }
-
+    }//rutaCorta
+    /***
+     * Este metodo se encarga de marcar la ruta desde el primero nodo elegido hasta el ultimo
+     */
     public void marcarRutaCorta(Nodo nodoFinal, Color color) {
         if (nodoFinal != null) {
             rutaCorta(nodoFinal);
@@ -86,9 +84,9 @@ public class Dijsktra {
                 if (!aux.isEmpty()) {
                     aux.get(i).getLineaQuebrada().setColor(color);
                     aux.get(i).getLineaQuebrada().setGrosorLinea(4);
-                }
-            }
-        }
-    }
+                }//if
+            }//for
+        }//if
+    }//marcaRutaCorta
 
 }//fin clase

@@ -16,33 +16,55 @@ public class Grafo {
             return true;
         } else {
             return false;
-        }
-    }
+        }//if-else
+    }//adjuntarNodo
 
+    /***
+     * Este metodo lo que hace es generar los enlaces dirigidos a los demas nodos
+     * @param padre se ocupa del nodo padre
+     * @param adyacente se ocupa del nodo del lado
+     * @param arista y se ocupa de la arista
+     */
     public void crearEnlacesDirigido(Nodo padre, Nodo adyacente, Arista arista) {
         if (padre != null && adyacente != null) {
             padre.addNodoAdyacente(arista, adyacente);
-        }
-    }
+        }//if
+    }//crearEnlacesDirigido
 
+    /***
+     * Este metodo lo que hace es generar los enlaces no dirigidos o los que no se conectan
+     * @param padre se ocupa del nodo padre
+     * @param adyacente se ocupa del nodo del lado
+     * @param arista y se ocupa de la arista
+     */
     public void crearEnlacesNoDirigido(Nodo padre, Nodo adyacente, Arista arista) {
         crearEnlacesDirigido(padre, adyacente, arista);
         crearEnlacesDirigido(adyacente, padre, arista);
-    }
+    }//crearEnlacesNoDirigido
 
-
+    /***
+     * Este metodo lo que hace es buscar un nodo que se requiera
+     * @param dato va a ser el nodo que se va a buscar
+     * @return
+     */
     public Nodo buscarNodo(Object dato) {
         Nodo temp = null;
         if (dato != null) {
             for (Nodo nodo : listaNodo) {
                 if (dato.equals(nodo.getDato())) {
                     temp = nodo;
-                }
-            }
-        }
+                }//if
+            }//for
+        }//if
         return temp;
-    }
+    }//buscarNodo
 
+    /***
+     * Este metodo va a buscar un nodo en una posicion
+     * @param x cordenada
+     * @param y cordenada
+     * @return
+     */
     public Nodo buscarNodo(int x, int y) {
         Nodo nodoAuxiliar = null;
         for (int i = 0; i < listaNodo.size(); i++) {
@@ -52,11 +74,16 @@ public class Grafo {
                 if (y > yNodo && y < (yNodo + listaNodo.get(i).getCirculo().getDiametro())) {
                     nodoAuxiliar = listaNodo.get(i);
                     break;
-                }
-            }
-        }
+                }//if
+            }//if
+        }//for
         return nodoAuxiliar;
-    }
+    }//buscarNodo
+
+    /***
+     * Getters and Setters
+     *
+     */
 
     public ArrayList<Nodo> getAdyacentes(Object dato) {
         ArrayList<Nodo> lista = null;

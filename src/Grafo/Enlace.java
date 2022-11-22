@@ -17,8 +17,12 @@ public class Enlace {
         // inicializando variables de instancia
         this.arista = arista;
         this.nodo = nodo;
-    }
+    }//constructor
 
+    /***
+     * Getters and Setters
+     *
+     */
     public void setArista(Arista arista) {
         this.arista = arista;
     }

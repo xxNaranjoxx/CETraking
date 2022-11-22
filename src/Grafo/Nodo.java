@@ -19,13 +19,16 @@ public class Nodo {
         circulo = null;
         izquierda = 0;
         inicializarParaDisjktra();
-    }
+    }//constructor
 
+    /***
+     * Este metodo es para empezar con el primer nodo
+     */
     private void inicializarParaDisjktra() {
         longitudCamino = -1;
         nodoAntecesorDisjktra = null;
         marca = false;
-    }
+    }//inicializarParaDisjktra
 
     public Nodo(Object dato, Coordenadas coordenada) {
         this.dato = dato;
@@ -33,18 +36,10 @@ public class Nodo {
         circulo = new Circulo(coordenada);
         circulo.setIzquierda(izquierda);
         inicializarParaDisjktra();
-    }
-
-    public void setDato(Object dato) {
-        this.dato = dato;
-    }
-
-    public Object getDato() {
-        return this.dato;
-    }
+    }//Constructor
 
     /***
-     *
+     * Getters and Setters
      * @return
      */
     public ArrayList<Enlace> getListaNodoAdyacente() {
@@ -54,11 +49,11 @@ public class Nodo {
             for (Enlace enlace : listaNodoAdyacente) {
                 if (enlace.getArista().isHabilitado()) {
                     listAristaAux.add(enlace);
-                }
-            }
-        }
+                }//if
+            }//for
+        }//if
         return listAristaAux;
-    }
+    }//getListaNodoAdyacente
 
     public void addNodoAdyacente(Enlace arista) {
         listaNodoAdyacente.add(arista);
@@ -68,6 +63,13 @@ public class Nodo {
         this.addNodoAdyacente(new Enlace(via, nodo));
     }
 
+    public void setDato(Object dato) {
+        this.dato = dato;
+    }
+
+    public Object getDato() {
+        return this.dato;
+    }
     public void setVisitado(boolean visitado) {
         this.visitado = visitado;
     }

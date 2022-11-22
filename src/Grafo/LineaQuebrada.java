@@ -20,8 +20,12 @@ public class LineaQuebrada {
         grosorLinea = 1f;
         color = Color.black;
         mostrarEtiqueta = true;
-    }
+    }//Constructor
 
+    /***
+     * Este es el metodo para dibujar la linea tipo quebrada en el resultado final
+     * @param g
+     */
     public void dibujarLineaQuebrada(Graphics g) {
         ((Graphics2D) g).setColor(getColor());
         ((Graphics2D) g).setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
@@ -35,8 +39,8 @@ public class LineaQuebrada {
                     ((Graphics2D) g).drawLine(aux[0], aux[1], aux[0], aux[1]);
                 } else {
                     ((Graphics2D) g).drawLine(coordenadas.get(i - 1)[0], coordenadas.get(i - 1)[1], aux[0], aux[1]);
-                }
-            }
+                }//if-else
+            }//for
 
             if (mostrarEtiqueta) {
                 ((Graphics2D) g).setColor(Color.blue);
@@ -58,16 +62,20 @@ public class LineaQuebrada {
 
                     ((Graphics2D) g).drawString(longitud + "", coordenadas.get(pos)[0] + 3, coordenadas.get(pos)[1] - 8);
 
-                }
-            }
-        }
+                }//if-else
+            }//if
+        }//if
 
 
         stroke = new BasicStroke(1);
         ((Graphics2D) g).setStroke(stroke);
 
-    }
+    }//dibujarLineaQuebrada
 
+    /***
+     * Getters and Setters
+     *
+     */
     private int mayor(int n1, int n2) {
         return (n1 > n2) ? n1 : n2;
     }

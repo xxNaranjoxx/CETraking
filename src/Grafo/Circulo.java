@@ -25,8 +25,12 @@ public class Circulo {
         fuente = null;
         izquierda = 0;
         grosorBorde = 2;
-    }
+    }//constrcutor
 
+    /***
+     * Este metodo va a crear el circulo graficamente
+     * @param g
+     */
     public void dibujarCirculo(Graphics g) {
         if (coordenadas.size() > 0) {
             ((Graphics2D) g).setColor(color);
@@ -39,17 +43,22 @@ public class Circulo {
             if (!"".equals(etiqueta)) {
                 if (fuente != null) {
                     g.setFont(fuente);
-                }
+                }//if
 
                 ((Graphics2D) g).drawString(etiqueta, coordenadas.get(0)[0] - (izquierda), coordenadas.get(0)[1]);
 
 
                 ((Graphics2D) g).setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
-            }
+            }//if
         } else {
             System.out.println("No hay coordenadas para el circulo");
-        }
-    }
+        }//if-else
+    }//dibujarCirculo
+
+    /***
+     * Getters and Setters
+     *
+     */
 
     public void setColor(Color color) {
         this.color = color;

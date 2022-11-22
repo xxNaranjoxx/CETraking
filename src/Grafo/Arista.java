@@ -11,17 +11,17 @@ public class Arista {
     public Arista() {
         // Inicializando variables de instancia
         this(-1, "");
-    }
+    }//constructor
 
     public Arista(int idArista) {
         // Inicializando variables de instancia
         this(-1, "");
-    }
+    }//constrcutor sobrecargado con la identificacion de la arista
 
     public Arista(int idArista, String nombreArista) {
         // Inicializando variables de instancia
         this(-1, "", 1);
-    }
+    }//constrcutor sobrecargado con la identificacion de la arista y con el nombre de esa arista
 
     public Arista(int idArista, String nombreArista, int peso) {
         // Inicializando variables de instancia
@@ -30,8 +30,12 @@ public class Arista {
         this.distancia = peso;
         lineaQuebrada = null;
         habilitado = true;
-    }
+    }//constructor para inicializar las variable
 
+    /***
+     * Getters and Setters
+     * @param idArista
+     */
     public void setIdArista(int idArista) {
         this.idArista = idArista;
     }

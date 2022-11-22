@@ -1,14 +1,8 @@
-/*
- * Autor: Juan Carlos Arcila Diaz
- * Localidad: Chiclayo-Peru
- * Email:carlos_ad_6@hotmail.com
- * Para Comunidad IncanatoHack.com
- */
 package GUI;
 
 import java.awt.Color;
 import java.util.ArrayList;
-import javax.swing.JOptionPane;
+import javax.swing.*;
 
 import Grafo.*;
 import Algoritmo.Dijsktra;
@@ -20,15 +14,19 @@ public class Gui_Grafos extends javax.swing.JFrame {
     Grafo grafo = new Grafo();
     Nodo nodoInicio = null;
     Nodo nodoFin = null;
+    private JPanel jPanel1;
+    private JPanel jPanel2;
 
     /**
-     * Creamos el form
+     * Constructor
      */
     public Gui_Grafos() {
         initComponents();
-    }
+    }//constructor
 
-
+    /***
+     * Este es el metodo para iniciar todos los componentes que se ocupan en la parte grafica
+     */
     private void initComponents() {
 
         jPanel2 = new javax.swing.JPanel();
@@ -41,7 +39,7 @@ public class Gui_Grafos extends javax.swing.JFrame {
         jPanel1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jPanel1MouseClicked(evt);
-            }
+            }//mouseClicked
         });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -85,19 +83,28 @@ public class Gui_Grafos extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    /***
+     * Este metodo para a imprimir en el panel el grafo que se va construyendo
+     */
     public void dibujarGrafo() {
         jPanel1.paint(jPanel1.getGraphics());
         dibujarArista();
         dibujarNodos();
-    }
+    }//dibujarGrafo
 
+    /***
+     * Este metodo va a ir dibujando los nodos que el usuario va creando en el panel
+     */
     public void dibujarNodos() {
         ArrayList<Nodo> listaNodo = grafo.getListaNodos();
         for (Nodo nodo : listaNodo) {
             nodo.getCirculo().dibujarCirculo(jPanel1.getGraphics());
-        }
-    }
+        }//for
+    }//dibujarNodo
 
+    /***
+     * Este metodo se va a encargar de dibujar la arista que une a los nodos
+     */
     public void dibujarArista() {
         ArrayList<Nodo> listaNodo = grafo.getListaNodos();
         for (Nodo nodo : listaNodo) {
@@ -105,11 +112,16 @@ public class Gui_Grafos extends javax.swing.JFrame {
             if (listaEnlace != null) {
                 for (Enlace enlace : listaEnlace) {
                     enlace.getArista().getLineaQuebrada().dibujarLineaQuebrada(jPanel1.getGraphics());
-                }
-            }
-        }
-    }
+                }//for
+            }//if
+        }//for
+    }//dibujarArista
 
+    /***
+     * Este metodo va a permitir que el usuarios cada vez que de click en los dos nodos que
+     * quiere crear la arista ingrese el peso que este va a tener
+     * @return
+     */
     private int ingresarPeso() {
         String peso = JOptionPane.showInputDialog("Digite la distancia entre puntos");
         int intPeso = 0;
@@ -117,10 +129,15 @@ public class Gui_Grafos extends javax.swing.JFrame {
             intPeso = Integer.parseInt(peso);
         } catch (Exception ex) {
             intPeso = ingresarPeso();
-        }
+        }//try-catch
         return intPeso;
-    }
+    }//ingresarPeso
 
+    /***
+     * Este metodo va a eliminar un nodo que se le pida
+     * @param x coordenada
+     * @param y coordenada
+     */
     private void eliminarNodo(int x, int y) {
         if (grafo.buscarNodo(x, y) != null) {//si se hace clic sobre un nodo
             Nodo temp = grafo.buscarNodo(x, y);
@@ -128,11 +145,15 @@ public class Gui_Grafos extends javax.swing.JFrame {
             if (grafo.eliminarNodo(temp)) {
                 JOptionPane.showMessageDialog(null, "Eliminado");
                 dibujarGrafo();
-            }
+            }//if
 
-        }
-    }
+        }//if
+    }//eliminarNodo
 
+    /**
+     * Estos son los mouse listener
+     * @param evt
+     */
     private void jPanel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel1MouseClicked
         int x = evt.getX();
         int y = evt.getY();
@@ -157,8 +178,8 @@ public class Gui_Grafos extends javax.swing.JFrame {
 //
                     nodoInicio = null;//null para poder crear mas arista
                     nodoFin = null;//null para poder crear mas arista
-                }
-            }
+                }//if-else
+            }//if
 
 
         } else {
@@ -175,15 +196,18 @@ public class Gui_Grafos extends javax.swing.JFrame {
 
                     nodoInicio = null;//null para poder crear mas arista
                     nodoFin = null;//null para poder crear mas arista
-                }
+                }//if-esle
             } else {//Si no he hecho clic sobre un nodo
                 crearNodo(x, y);//creo un nodo apartir de unas coordenadas
-            }
-        }
+                //eliminarNodo(x,y);
+            }//if-else
+        }//if-else
         dibujarGrafo();
     }//GEN-LAST:event_jPanel1MouseClicked
 
-
+    /***
+     * Este metodo crea la arista que uno los dos nodos
+     */
     private void crearArista() {
         int intPeso = ingresarPeso();
         Arista arista = new Arista();
@@ -195,8 +219,13 @@ public class Gui_Grafos extends javax.swing.JFrame {
         arista.setLineaQuebrada(lq);
         grafo.crearEnlacesNoDirigido(nodoInicio, nodoFin, arista);
 
-    }
+    }//crearArista
 
+    /***
+     * Este metodo crea el nodo el la posicion que el usuario hubiera dado click
+     * @param x coordenada
+     * @param y coordenada
+     */
     private void crearNodo(int x, int y) {
         Coordenadas c = new Coordenadas(100000, 100000, x, y);
         String dato = JOptionPane.showInputDialog("Digite un dato o Nombre de la coordenada");
@@ -208,11 +237,11 @@ public class Gui_Grafos extends javax.swing.JFrame {
             if (grafo.adjuntarNodo(nodo)) {
                 nodo.getCirculo().dibujarCirculo(jPanel1.getGraphics());
             } else {
-            }
+            }//if-else
             nodoInicio = null;
             nodoFin = null;
-        }
-    }
+        }//if
+    }//crearNodo
 
     /**
      * @param args the command line arguments
@@ -229,7 +258,6 @@ public class Gui_Grafos extends javax.swing.JFrame {
     }**/
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
+
     // End of variables declaration//GEN-END:variables
 }//fin clase Gui

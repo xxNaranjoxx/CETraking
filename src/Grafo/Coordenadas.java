@@ -10,14 +10,14 @@ public class Coordenadas extends ArrayList<int[]> {
     public Coordenadas() {
         // inicializando variables de instancia
         this(0, 0);
-    }
+    }//constructor
 
     public Coordenadas(int xMaxima, int yMaxima) {
         // inicializando variables de instancia
         super();
         this.xMaxima = xMaxima;
         this.yMaxima = yMaxima;
-    }
+    }//constructor sobrecargado
 
     public Coordenadas(int xMaxima, int yMaxima, int x, int y) {
         // inicializando variables de instancia
@@ -25,8 +25,12 @@ public class Coordenadas extends ArrayList<int[]> {
         this.xMaxima = xMaxima;
         this.yMaxima = yMaxima;
         addCoordenada(x, y);
-    }
+    }//constructor
 
+    /***
+     * Getters and Setters
+     * @param xMaxima
+     */
     public void setXMaxima(int xMaxima) {
         this.xMaxima = xMaxima;
     }
