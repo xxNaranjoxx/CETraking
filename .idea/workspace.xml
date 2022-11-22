@@ -4,12 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8337cf64-8087-4ad6-9af8-0d3bcde482af" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Grafo/Grafo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Grafo/Grafo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Grafo/Nodo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Grafo/Dijkstra.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-    </list>
+    <list default="true" id="8337cf64-8087-4ad6-9af8-0d3bcde482af" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
