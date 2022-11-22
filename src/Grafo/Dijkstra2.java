@@ -1,9 +1,6 @@
 package Grafo;
 
-import javax.swing.*;
-import java.util.Scanner;
-
-public class Dijkstra {
+public class Dijkstra2 {
 
     public int precio[][] = new int[10][10];
     public int dist[] = new int[10]; //almacenamiento de las distancias

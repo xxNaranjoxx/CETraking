@@ -1,7 +1,5 @@
-import Grafo.Grafo;
-
 import java.util.Scanner;
-import Grafo.Dijkstra;
+import Grafo.Dijkstra2;
 
 public class Main {
 
@@ -45,7 +43,7 @@ public class Main {
                                 teclado.next();
                             }//try-catch
                         }while (t);
-                        Dijkstra abc = new Dijkstra();
+                        Dijkstra2 abc = new Dijkstra2();
                         System.out.println("Digite la matriz de costos separado por espacios o digitlos uno por uno");
                         for (u = 1; u <= nodos; u++) {
                             for (z = 1; z <= nodos; z++) {
