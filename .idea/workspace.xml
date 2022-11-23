@@ -4,18 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8337cf64-8087-4ad6-9af8-0d3bcde482af" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/src/Algoritmo/Dijsktra.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Algoritmo/Dijsktra.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Algoritmo/ListaNodo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Algoritmo/ListaNodo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GUI/Gui_Grafos.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/Gui_Grafos.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Grafo/Arista.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Grafo/Arista.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Grafo/Circulo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Grafo/Circulo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Grafo/Coordenadas.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Grafo/Coordenadas.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Grafo/Enlace.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Grafo/Enlace.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Grafo/Grafo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Grafo/Grafo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Grafo/LineaQuebrada.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Grafo/LineaQuebrada.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Grafo/Nodo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Grafo/Nodo.java" afterDir="false" />
-    </list>
+    <list default="true" id="8337cf64-8087-4ad6-9af8-0d3bcde482af" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
