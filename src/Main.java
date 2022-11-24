@@ -1,7 +1,4 @@
-import java.util.Scanner;
-
 import GUI.Gui_Grafos;
-import Grafo.Dijkstra2;
 
 public class Main {
 

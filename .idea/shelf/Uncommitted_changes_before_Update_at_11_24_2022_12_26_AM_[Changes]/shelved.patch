@@ -1,0 +1,126 @@
+Index: src/Main.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>import java.util.Scanner;\r\n\r\nimport GUI.Gui_Grafos;\r\nimport Grafo.Dijkstra2;\r\n\r\npublic class Main {\r\n\r\n    public static void main(String[] args) {\r\n\r\n        java.awt.EventQueue.invokeLater(new Runnable() {\r\n\r\n            @Override\r\n            public void run() {\r\n                new Gui_Grafos().setVisible(true);\r\n            }\r\n        });\r\n\r\n        /***\r\n        int u, z, origen = 0,nodos = 0, caso = 0, existe = 0 ;\r\n        boolean t, w = true, y = true;\r\n        while (w == true){\r\n            Scanner teclado = new Scanner(System.in);\r\n            System.out.println(\"----HOLA----\");\r\n            System.out.println(\"1 Para digitar los nodos\");\r\n            System.out.println(\"2 Por si quieres ver el ejemplo\");\r\n            System.out.println(\"3 Para salir\");\r\n            System.out.println(\"------------\");\r\n\r\n            do {\r\n                t = false;\r\n                try {\r\n                    System.out.println(\"Selecciona el tipo de caso: \");\r\n                    caso = teclado.nextInt();\r\n                }catch (Exception e){\r\n                    System.out.println(\"Solo se aceptan numeros naturales\");\r\n                    t = true;\r\n                    teclado.next();\r\n                }\r\n            }while (t);\r\n\r\n            switch (caso){\r\n                case 1:\r\n                    while (y == true){\r\n                        System.out.println(\"Seleccionaste 1\");\r\n                        do {\r\n                            t = false;\r\n                            try{\r\n                                System.out.println(\"Digita el numero de nodos: \");\r\n                                nodos = teclado.nextInt();\r\n                                \r\n                            }catch (Exception e){\r\n\r\n                                System.out.println(\"Solo se aceptan numeros naturales.\");\r\n                                t= true;\r\n                                teclado.next();\r\n                            }//try-catch\r\n                        }while (t);\r\n                        Dijkstra2 abc = new Dijkstra2();\r\n                        System.out.println(\"Digite la matriz de costos separado por espacios o digitlos uno por uno\");\r\n                        for (u = 1; u <= nodos; u++) {\r\n                            for (z = 1; z <= nodos; z++) {\r\n\r\n                                do{\r\n                                    t = false;\r\n                                    try{\r\n                                        abc.precio[u][z] = teclado.nextInt();\r\n                                    }catch (Exception e){\r\n                                        System.out.println(\"Solo se aceptan numeros naturales\");\r\n                                        t = true;\r\n                                        teclado.next();\r\n                                    }\r\n                                }while (t);\r\n                                if (abc.precio[u][z] == 0){\r\n                                    abc.precio[u][z] = 999;\r\n                                }//if\r\n                            }//for z\r\n                        }//for u\r\n                        do {\r\n                            t = false;\r\n                            try {\r\n                                System.out.println(\"Digite el origen de la vertice: \");\r\n                                origen = teclado.nextInt();\r\n                            }catch (Exception e){\r\n                                System.out.println(\"Solo se aceptan numeros naturales.\");\r\n                                t= true;\r\n                                teclado.next();\r\n                            }//try-catch\r\n                        }while (t);//termina do\r\n\r\n                        abc.calcula(nodos,origen);\r\n                        System.out.println(\"El camino mas corto desde el origen \" + origen + \" a todos los demas vertices son:\");\r\n                        for (u = 1; u <= nodos; u++) {\r\n                            if (u != origen){\r\n                                System.out.println(\"Origen: \" + origen + \" Destino: \" + u + \" Costos minimo: \" + abc.dist[u]);\r\n                                System.out.println(\"\");\r\n                            }//if\r\n                        }//for\r\n                        System.out.println(abc.dist[u]);\r\n                        System.out.println(\"Selecciona 1 para regresar al menu principal\");\r\n                        System.out.println(\"Selecciona algun numero para volver a empezar\");\r\n                        do{\r\n                            t = false;\r\n                            try{\r\n                                System.out.println(\"Selecciona el tipo de caso: \");\r\n                                existe = teclado.nextInt();\r\n                            }catch (Exception e){\r\n                                System.out.println(\"Solo se acepta numeros naturales.\");\r\n                                t = true;\r\n                                teclado.next();\r\n                            }//fin try\r\n                        } while (t);\r\n                        if (existe == 1 ) {\r\n                            y= false;\r\n                        }\r\n                        \r\n                    }\r\n                    break;\r\n                case 2:\r\n                    System.out.println(\"caso 2\");\r\n                    break;\r\n                case 3:\r\n                    System.out.println(\"Sellecionaste salir\");\r\n                    System.exit(0);\r\n                    break;\r\n            }\r\n\r\n\r\n        }**/\r\n\r\n        /**Scanner scan = new Scanner(System.in);\r\n        Grafo G = new Grafo();\r\n        int o = 0;\r\n\r\n        do {\r\n\r\n            G.Introducir();\r\n            G.Muestra();\r\n            G.Conexo();\r\n            G.Grado();\r\n            System.out.println(\"Desea buscar un camino en este grafo \\n1.-SI\\n2.-NO\");\r\n            int op = scan.nextInt();\r\n            if (op == 1) {\r\n                System.out.println(\"De el vertice de partida\");\r\n                int i = scan.nextInt();\r\n                System.out.println(\"De el vertice a llegar\");\r\n                int j = scan.nextInt();\r\n                G.Camino(i, j);\r\n            }\r\n\r\n            System.out.println(\"^*****GRAFO EVALUADO*****\");\r\n            System.out.println(\"\\nDesea introducir otro grafo \\n1.-SI\\n2.-NO\");\r\n            o = scan.nextInt();\r\n        } while (o == 1);**/\r\n    }\r\n\r\n\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/Main.java b/src/Main.java
+--- a/src/Main.java	(revision 7b122138add4a397a719f5211ac767834bb84fd4)
++++ b/src/Main.java	(date 1669235677839)
+@@ -1,7 +1,4 @@
+-import java.util.Scanner;
+-
+ import GUI.Gui_Grafos;
+-import Grafo.Dijkstra2;
+ 
+ public class Main {
+ 
+Index: src/Grafo/Dijkstra2.java
+===================================================================
+diff --git a/src/Grafo/Dijkstra2.java b/src/Grafo/Dijkstra2.java
+deleted file mode 100644
+--- a/src/Grafo/Dijkstra2.java	(revision 7b122138add4a397a719f5211ac767834bb84fd4)
++++ /dev/null	(revision 7b122138add4a397a719f5211ac767834bb84fd4)
+@@ -1,42 +0,0 @@
+-package Grafo;
+-
+-public class Dijkstra2 {
+-
+-    public int precio[][] = new int[10][10];
+-    public int dist[] = new int[10]; //almacenamiento de las distancias
+-
+-
+-
+-    public void calcula(int x, int y) {
+-        int indi [] = new int[x+1];
+-        int u,costomin = 1, c,d,minimo; // variable con las distancia
+-
+-        for (u = 1; u <= x; u++) {
+-            indi[u] = 0;
+-            this.dist[u] = this.precio[y][u]; //precio
+-        }//for
+-        c= 2;
+-        while (c<=x){
+-            minimo = 99;
+-            for (d = 1; d <= x; d++) {
+-
+-                if (this.dist[d]< minimo && indi[d] != 1){
+-                    minimo = this.dist[u];
+-                    costomin = d;
+-                }//if
+-            }//for
+-            indi[costomin]= 1;
+-            c++;
+-            for (d = 1; d <= x; d++) {
+-
+-                if (this.dist[costomin]+ this.precio[costomin][d] < this.dist[d] && indi[d] !=1) {
+-                    this.dist[d] = this.dist[costomin] + this.precio[costomin][d];
+-                }//if
+-
+-            }//for
+-
+-        }//while
+-
+-
+-    }//calcula
+-}//fin clase dijkstra
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"AutoImportSettings\">\r\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\r\n  </component>\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"8337cf64-8087-4ad6-9af8-0d3bcde482af\" name=\"Changes\" comment=\"\" />\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"FileTemplateManagerImpl\">\r\n    <option name=\"RECENT_TEMPLATES\">\r\n      <list>\r\n        <option value=\"Class\" />\r\n      </list>\r\n    </option>\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\r\n  </component>\r\n  <component name=\"MarkdownSettingsMigration\">\r\n    <option name=\"stateVersion\" value=\"1\" />\r\n  </component>\r\n  <component name=\"ProjectId\" id=\"2HayzmNel7zx5HVTXXMY5YD2jgD\" />\r\n  <component name=\"ProjectLevelVcsManager\" settingsEditedManually=\"true\" />\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\"><![CDATA[{\r\n  \"keyToString\": {\r\n    \"RunOnceActivity.OpenProjectViewOnStart\": \"true\",\r\n    \"RunOnceActivity.ShowReadmeOnStart\": \"true\",\r\n    \"last_opened_file_path\": \"C:/Users/Dani2/OneDrive/Escritorio/Amor/Algotimos/CaminoMinimo\"\r\n  }\r\n}]]></component>\r\n  <component name=\"RunAnythingCache\">\r\n    <option name=\"myCommands\">\r\n      <command value=\"Main\" />\r\n    </option>\r\n  </component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"8337cf64-8087-4ad6-9af8-0d3bcde482af\" name=\"Changes\" comment=\"\" />\r\n      <created>1668537762853</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1668537762853</updated>\r\n    </task>\r\n    <servers />\r\n  </component>\r\n  <component name=\"Vcs.Log.Tabs.Properties\">\r\n    <option name=\"TAB_STATES\">\r\n      <map>\r\n        <entry key=\"MAIN\">\r\n          <value>\r\n            <State />\r\n          </value>\r\n        </entry>\r\n      </map>\r\n    </option>\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision 7b122138add4a397a719f5211ac767834bb84fd4)
++++ b/.idea/workspace.xml	(date 1669260793848)
+@@ -4,7 +4,11 @@
+     <option name="autoReloadType" value="SELECTIVE" />
+   </component>
+   <component name="ChangeListManager">
+-    <list default="true" id="8337cf64-8087-4ad6-9af8-0d3bcde482af" name="Changes" comment="" />
++    <list default="true" id="8337cf64-8087-4ad6-9af8-0d3bcde482af" name="Changes" comment="">
++      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/Grafo/Dijkstra2.java" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
++    </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+@@ -33,7 +37,8 @@
+   "keyToString": {
+     "RunOnceActivity.OpenProjectViewOnStart": "true",
+     "RunOnceActivity.ShowReadmeOnStart": "true",
+-    "last_opened_file_path": "C:/Users/Dani2/OneDrive/Escritorio/Amor/Algotimos/CaminoMinimo"
++    "last_opened_file_path": "C:/Users/Gabriel/Documents/GitHub/Proyecto_CETracking",
++    "settings.editor.selected.configurable": "preferences.lookFeel"
+   }
+ }]]></component>
+   <component name="RunAnythingCache">
+@@ -50,6 +55,14 @@
+       <option name="presentableId" value="Default" />
+       <updated>1668537762853</updated>
+     </task>
++    <task id="LOCAL-00001" summary="La vida es bonita(Javadoc)">
++      <created>1669181036361</created>
++      <option name="number" value="00001" />
++      <option name="presentableId" value="LOCAL-00001" />
++      <option name="project" value="LOCAL" />
++      <updated>1669181036361</updated>
++    </task>
++    <option name="localTasksCounter" value="2" />
+     <servers />
+   </component>
+   <component name="Vcs.Log.Tabs.Properties">
+@@ -63,4 +76,9 @@
+       </map>
+     </option>
+   </component>
++  <component name="VcsManagerConfiguration">
++    <MESSAGE value="La vida es bonita(Javadoc)" />
++    <option name="LAST_COMMIT_MESSAGE" value="La vida es bonita(Javadoc)" />
++    <option name="GROUP_MULTIFILE_MERGE_BY_DIRECTORY" value="true" />
++  </component>
+ </project>
+\ No newline at end of file

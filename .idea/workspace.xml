@@ -1,17 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="AutoImportSettings">
-    <option name="autoReloadType" value="SELECTIVE" />
-  </component>
   <component name="ChangeListManager">
-    <list default="true" id="8337cf64-8087-4ad6-9af8-0d3bcde482af" name="Changes" comment="JavaDoc Bien 3°">
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11_22_2022_11_12_PM__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11_22_2022_11_12_PM__Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11_22_2022_11_20_PM__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11_22_2022_11_20_PM__Changes_.xml" afterDir="false" />
+    <list default="true" id="1abd4420-fc75-49ff-bd83-6af6770b839a" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_22_11_2022_23_36__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_22_11_2022_23_36__Changes_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Grafo/Coordenadas.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Grafo/Coordenadas.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Grafo/Grafo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Grafo/Grafo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Grafo/LineaQuebrada.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Grafo/LineaQuebrada.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Grafo/Nodo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Grafo/Nodo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Grafo/Dijkstra2.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -25,26 +18,26 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="ProjectId" id="2Hw2vQN6ENzDvGBo5l2SSXMrZwl" />
+  <component name="ProjectId" id="2HyxmYlCz2se0leeIRsU2Ws96FI" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true"
   }
-}</component>
+}]]></component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="8337cf64-8087-4ad6-9af8-0d3bcde482af" name="Changes" comment="JavaDoc Bien 3°" />
-      <created>1669182055853</created>
+      <changelist id="1abd4420-fc75-49ff-bd83-6af6770b839a" name="Changes" comment="" />
+      <created>1669271286518</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1669182055853</updated>
+      <updated>1669271286518</updated>
     </task>
     <servers />
   </component>
