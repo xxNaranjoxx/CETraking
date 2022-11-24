@@ -27,6 +27,13 @@ public class Coordenadas extends ArrayList<int[]> {
         addCoordenada(x, y);
     }//constructor
 
+    public void addCoordenada(int x, int y) {
+        if (x >= 0 && x <= xMaxima && y >= 0 && y <= yMaxima) {
+            int[] parXY = {x, y};
+            add(parXY);
+        }//if
+    }//addCoordenada
+
     /***
      * Getters and Setters
      * @param xMaxima
@@ -39,12 +46,6 @@ public class Coordenadas extends ArrayList<int[]> {
         this.yMaxima = yMaxima;
     }
 
-    public void addCoordenada(int x, int y) {
-        if (x >= 0 && x <= xMaxima && y >= 0 && y <= yMaxima) {
-            int[] parXY = {x, y};
-            add(parXY);
-        }
-    }
 
     public int getxMaxima() {
         return xMaxima;

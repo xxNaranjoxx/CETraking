@@ -7,6 +7,9 @@ public class Main {
 
     public static void main(String[] args) {
 
+        /**
+         * Se crea el hilo para estar actualizadno y recibiendo informacion de GUI
+         */
         java.awt.EventQueue.invokeLater(new Runnable() {
 
             @Override
@@ -154,4 +157,4 @@ public class Main {
     }
 
 
-}
+}//clase main

@@ -66,7 +66,6 @@ public class LineaQuebrada {
             }//if
         }//if
 
-
         stroke = new BasicStroke(1);
         ((Graphics2D) g).setStroke(stroke);
 

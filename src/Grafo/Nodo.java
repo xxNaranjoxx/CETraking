@@ -42,6 +42,8 @@ public class Nodo {
      * Getters and Setters
      * @return
      */
+
+
     public ArrayList<Enlace> getListaNodoAdyacente() {
         ArrayList<Enlace> listAristaAux = null;
         if (!listaNodoAdyacente.isEmpty()) {
@@ -109,5 +111,6 @@ public class Nodo {
     public void setNodoAntecesorDisjktra(Nodo nodoAntecesorDisjktra) {
         this.nodoAntecesorDisjktra = nodoAntecesorDisjktra;
     }
+
 
 }//fin clase

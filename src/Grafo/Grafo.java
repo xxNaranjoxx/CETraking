@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 public class Grafo {
     private ArrayList<Nodo> listaNodo;
+    private Nodo adyacente;
 
     public Grafo() {
         listaNodo = new ArrayList<Nodo>();
@@ -81,6 +82,160 @@ public class Grafo {
     }//buscarNodo
 
     /***
+     * Este metodo es para ver los nodos adyacentes
+     * @param n1 se solicita un nodo
+     * @param n2 se solicita otro nodo
+     * @return
+     */
+    public boolean isAdyacente(Nodo n1, Nodo n2) {
+        boolean aux = false;
+        ArrayList<Enlace> listaAristas = n1.getListaNodoAdyacente();
+        if (listaAristas != null) {
+            for (int i = 0; i < listaAristas.size(); i++) {
+                if (listaAristas.get(i).getNodo() == n2) {
+                    aux = true;
+                }//if
+            }//for
+        }//if
+        return aux;
+    }//isAdyacente
+
+    /***
+     *
+     * @param datoNodoInicio
+     * @param datoNodoDestino
+     * @return
+     */
+
+    public boolean isAdyacente(Object datoNodoInicio, Object datoNodoDestino) {
+        boolean aux = false;
+        Nodo n1 = buscarNodo(datoNodoInicio);
+        Nodo n2 = buscarNodo(datoNodoDestino);
+        ArrayList<Enlace> listaAristas = n1.getListaNodoAdyacente();
+        if (listaAristas != null) {
+            for (int i = 0; i < listaAristas.size(); i++) {
+                if (listaAristas.get(i).getNodo() == n2) {
+                    aux = true;
+                }//if
+            }//for
+        }//if
+        return aux;
+    }//isAdyacente
+
+    /***
+     *
+     */
+    public void reiniciarGrafoParaDisjktra() {
+        for (Nodo n : listaNodo) {
+            n.setMarca(false);
+            n.setNodoAntecesorDisjktra(null);
+            n.setLongitudCamino(-1);
+        }//for
+    }//reiniciarGrafoParaDisjktra
+
+    /***
+     *
+     * @param nodo
+     * @return
+     */
+    public boolean eliminarNodo(Nodo nodo) {
+        boolean retornado = false;
+        if (nodo != null) {
+            retornado = listaNodo.remove(nodo);
+        }//if
+        return retornado;
+    }//eliminarNodo
+
+    /***
+     * Este metodo es para reiniciar los colores en la parte grafica
+     */
+    public void reiniciarColores() {
+        if (listaNodo != null) {
+            for (Nodo nodo : listaNodo) {
+                nodo.getCirculo().setColor(Color.yellow);
+                ArrayList<Enlace> la = nodo.getListaNodoAdyacente();
+                if (la != null) {
+                    for (Enlace enlace : la) {
+                        if (enlace.getArista().isHabilitado()) {
+                            enlace.getArista().getLineaQuebrada().setColor(Color.black);
+                            enlace.getArista().getLineaQuebrada().setGrosorLinea(1);
+                        }//if
+                    }//for
+                }//if
+            }//for
+        }//if
+    }//reiniciarColores
+
+    /***
+     * Este metodo es para buscar la arista entrante
+     */
+    public ArrayList<Arista> aristasEntrante(Nodo nodo) {
+        ArrayList<Arista> listaArista = null;
+        for (Nodo n : listaNodo) {
+            ArrayList<Enlace> enlaces = n.getListaNodoAdyacente();
+            if (enlaces != null) {
+                listaArista = new ArrayList<Arista>();
+                for (Enlace e : enlaces) {
+                    if (e.getNodo() == nodo) {
+                        listaArista.add(e.getArista());
+                    }//if
+                }//for
+            }//if
+        }//for
+        return listaArista;
+    }//aristasEntrante
+
+    /***
+     * Este es para ver la arista saliente de un nodo, funcion recursiva
+     * @param nodo se necesita de un nodo
+     * @return
+     */
+    public ArrayList<Arista> aristasSaliente(Nodo nodo) {
+        ArrayList<Arista> listaArista = null;
+        if (nodo != null) {
+            if (listaNodo.contains(nodo)) {
+                ArrayList<Enlace> listaEnlace = nodo.getListaNodoAdyacente();
+                if (listaArista != null) {
+                    listaArista = new ArrayList<Arista>();
+                    for (Enlace e : listaEnlace) {
+                        listaArista.add(e.getArista());
+                    }//for
+                }//if
+            }//if
+        }//if
+        return listaArista;
+    }//aristasSaliente
+
+    /***
+     * Este metodo es para eliminar alguna arista de un nodo
+     * @param nodo se necesita de un nodo
+     */
+    private void eliminarAristas(Nodo nodo) {
+        ArrayList<Arista> aristas = aristasSaliente(nodo);
+        for (Arista a : aristas) {
+            a = null;
+        }//for
+    }//eliminarAristas
+
+    /**
+     * metodo de prueba
+     * @param nodo
+     */
+    public void eliminarAristasSalientes(Nodo nodo) {
+        ArrayList<Arista> aristas = aristasSaliente(nodo);
+        eliminarAristas(nodo);
+    }//eliminarAristasSalientes
+
+    /***
+     * Metodo para eliminar la arista
+     * @param nodo se necesita de un nodo
+     */
+    public void eliminarAristasEntrante(Nodo nodo) {
+        ArrayList<Arista> aristas = aristasEntrante(nodo);
+        eliminarAristas(nodo);
+    }//eliminarAristasEntrante
+
+    /***
      * Getters and Setters
      *
      */
@@ -96,43 +251,12 @@ public class Grafo {
         }
         return lista;
     }
-
     public ArrayList<Nodo> getListaNodos() {
         return listaNodo;
     }
-
-    public boolean isAdyacente(Nodo n1, Nodo n2) {
-        boolean aux = false;
-        ArrayList<Enlace> listaAristas = n1.getListaNodoAdyacente();
-        if (listaAristas != null) {
-            for (int i = 0; i < listaAristas.size(); i++) {
-                if (listaAristas.get(i).getNodo() == n2) {
-                    aux = true;
-                }
-            }
-        }
-        return aux;
-    }
-
-    public boolean isAdyacente(Object datoNodoInicio, Object datoNodoDestino) {
-        boolean aux = false;
-        Nodo n1 = buscarNodo(datoNodoInicio);
-        Nodo n2 = buscarNodo(datoNodoDestino);
-        ArrayList<Enlace> listaAristas = n1.getListaNodoAdyacente();
-        if (listaAristas != null) {
-            for (int i = 0; i < listaAristas.size(); i++) {
-                if (listaAristas.get(i).getNodo() == n2) {
-                    aux = true;
-                }
-            }
-        }
-        return aux;
-    }
-
     public Arista getArista(Object datoNodo1, Object datoNodo2) {
         return getArista(buscarNodo(datoNodo1), buscarNodo(datoNodo2));
     }
-
     public Arista getArista(String nombreVia) {
         Arista aux = null;
         if (nombreVia != null) {
@@ -148,7 +272,6 @@ public class Grafo {
         }
         return aux;
     }
-
     public Arista getArista(Nodo n1, Nodo n2) {
         Arista aux = null;
         if (isAdyacente(n1, n2)) {
@@ -163,7 +286,6 @@ public class Grafo {
         }
         return aux;
     }
-
     public Enlace getEnlace(Object datoNodo1, Object datoNodo2) {
         Enlace aux = null;
         if (isAdyacente(datoNodo1, datoNodo2)) {
@@ -181,85 +303,4 @@ public class Grafo {
         return aux;
     }
 
-    public void reiniciarGrafoParaDisjktra() {
-        for (Nodo n : listaNodo) {
-            n.setMarca(false);
-            n.setNodoAntecesorDisjktra(null);
-            n.setLongitudCamino(-1);
-        }
-    }
-
-    public boolean eliminarNodo(Nodo nodo) {
-        boolean retornado = false;
-        if (nodo != null) {
-            retornado = listaNodo.remove(nodo);
-        }
-        return retornado;
-    }
-
-    public void reiniciarColores() {
-        if (listaNodo != null) {
-            for (Nodo nodo : listaNodo) {
-                nodo.getCirculo().setColor(Color.yellow);
-                ArrayList<Enlace> la = nodo.getListaNodoAdyacente();
-                if (la != null) {
-                    for (Enlace enlace : la) {
-                        if (enlace.getArista().isHabilitado()) {
-                            enlace.getArista().getLineaQuebrada().setColor(Color.black);
-                            enlace.getArista().getLineaQuebrada().setGrosorLinea(1);
-                        }
-                    }
-                }
-            }
-        }
-    }
-
-    public ArrayList<Arista> aristasEntrante(Nodo nodo) {
-        ArrayList<Arista> listaArista = null;
-        for (Nodo n : listaNodo) {
-            ArrayList<Enlace> enlaces = n.getListaNodoAdyacente();
-            if (enlaces != null) {
-                listaArista = new ArrayList<Arista>();
-                for (Enlace e : enlaces) {
-                    if (e.getNodo() == nodo) {
-                        listaArista.add(e.getArista());
-                    }
-                }
-            }
-        }
-        return listaArista;
-    }
-
-    public ArrayList<Arista> aristasSaliente(Nodo nodo) {
-        ArrayList<Arista> listaArista = null;
-        if (nodo != null) {
-            if (listaNodo.contains(nodo)) {
-                ArrayList<Enlace> listaEnlace = nodo.getListaNodoAdyacente();
-                if (listaArista != null) {
-                    listaArista = new ArrayList<Arista>();
-                    for (Enlace e : listaEnlace) {
-                        listaArista.add(e.getArista());
-                    }
-                }
-            }
-        }
-        return listaArista;
-    }
-
-    private void eliminarAristas(Nodo nodo) {
-        ArrayList<Arista> aristas = aristasSaliente(nodo);
-        for (Arista a : aristas) {
-            a = null;
-        }
-    }
-
-    public void eliminarAristasSalientes(Nodo nodo) {
-        ArrayList<Arista> aristas = aristasSaliente(nodo);
-        eliminarAristas(nodo);
-    }
-
-    public void eliminarAristasEntrante(Nodo nodo) {
-        ArrayList<Arista> aristas = aristasEntrante(nodo);
-        eliminarAristas(nodo);
-    }
-}
+}//fin clase grafo
