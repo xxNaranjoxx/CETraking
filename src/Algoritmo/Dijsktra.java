@@ -8,7 +8,9 @@ import Grafo.Enlace;
 import Grafo.Grafo;
 import Grafo.Nodo;
 
-
+/***
+ * Clase para el algoritmo Dijsktra
+ */
 public class Dijsktra {
     Grafo grafo;
     ListaNodo listaNodosAdyacentes;
@@ -19,6 +21,10 @@ public class Dijsktra {
         listaNodosAdyacentes = new ListaNodo();
     }//constructor
 
+    /***
+     * Crea lista
+     * @param nodo
+     */
     private void llenarConAdyacentes(Nodo nodo) {
         if (nodo != null) {
             ArrayList<Enlace> listaAux = nodo.getListaNodoAdyacente();

@@ -12,9 +12,16 @@ todoButton.addEventListener("click", addTodo);
 todoList.addEventListener('click', deleteCheck);
 filterOption.addEventListener("click", filterTodo);
 
+btn_location.addEventListener("click", prueba);
+
 
 
 //Functions
+function prueba(event){
+    event.preventDefault();
+    console.log(formdataObj);
+    }
+
 function greet(name){
     console.log(`Hey,${name}!`);
 }
@@ -153,3 +160,4 @@ function removeLocalTodos(todo){
     localStorage.setItem('todos',JSON.stringify(todos));
 
 }
+
