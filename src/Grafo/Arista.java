@@ -8,21 +8,36 @@ public class Arista {
     private LineaQuebrada lineaQuebrada;//Ésta es la via representada graficamente
     private boolean habilitado;
 
+    /***
+     * Metodo constructor
+     */
     public Arista() {
         // Inicializando variables de instancia
         this(-1, "");
     }//constructor
 
+    /***
+     * Metodo constructor sobrecargado
+     * @param idArista
+     */
     public Arista(int idArista) {
         // Inicializando variables de instancia
         this(-1, "");
     }//constrcutor sobrecargado con la identificacion de la arista
 
+    /***
+     * Metodo constructor sobrecargado
+     * @param idArista
+     */
     public Arista(int idArista, String nombreArista) {
         // Inicializando variables de instancia
         this(-1, "", 1);
     }//constrcutor sobrecargado con la identificacion de la arista y con el nombre de esa arista
 
+    /***
+     * Metodo constructor sobrecargado
+     * @param idArista
+     */
     public Arista(int idArista, String nombreArista, int peso) {
         // Inicializando variables de instancia
         this.idArista = idArista;

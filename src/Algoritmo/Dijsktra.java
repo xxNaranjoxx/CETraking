@@ -16,13 +16,18 @@ public class Dijsktra {
     ListaNodo listaNodosAdyacentes;
     ArrayList<Arista> aux = new ArrayList<Arista>();
 
+    /***
+     * Metodo constructor
+     * @param grafo
+     */
     public Dijsktra(Grafo grafo) {
         this.grafo = grafo;
         listaNodosAdyacentes = new ListaNodo();
     }//constructor
 
     /***
-     * Crea lista
+     * Este metodo va haciendo las comparaciones y adjuntando con los nodos adyacentes
+     * para ir creadno el camino
      * @param nodo
      */
     private void llenarConAdyacentes(Nodo nodo) {
@@ -51,6 +56,11 @@ public class Dijsktra {
         }//if
     }//llenarConAdyacentes
 
+    /***
+     *  Este metodo hace la ejecucion para ubicarse en el nodo a partir del cuál se quiere empezar
+     *  el recorrido
+     * @param nodoInicio
+     */
     public void ejecutar(Nodo nodoInicio) {
         nodoInicio.setLongitudCamino(0);
         if (nodoInicio != null) {
